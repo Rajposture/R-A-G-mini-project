@@ -24,3 +24,4 @@ db = Chroma.from_documents(
 )
 
 print(f"Stored {len(chunks)} chunks")
+#phase 1 completed
