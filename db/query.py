@@ -5,7 +5,7 @@ embedding = OllamaEmbeddings(     # Load embedding model load balancing across C
 )
 
 db = Chroma(
-    persist_directory="./chroma_db",  # Connection to existing ChromaDB
+    persist_directory="./chroma_db",  # chroma db ka path jaha pe humne chunks store kiye hai
     embedding_function=embedding
 )
 
@@ -14,7 +14,7 @@ retriever = db.as_retriever(
 )
 
 question = input("Ask ur question: ")  
-# user question
+# user ka question input le rahe hai, ye question retriever ko denge, retriever us question ke basis pe relevant chunks ko retrieve karega 
 docs = retriever.invoke(question) # chunk created retrived based on user question
 
 context = "\n\n".join(
